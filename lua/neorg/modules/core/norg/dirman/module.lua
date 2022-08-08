@@ -472,9 +472,9 @@ module.on_event = function(event)
         local current_workspace = module.public.get_current_workspace()
 
         -- If the current working directory is not the same as the workspace root then set it
-        if current_workspace[2] ~= new_cwd then
-            vim.cmd("lcd! " .. current_workspace[2])
-        end
+        -- if current_workspace[2] ~= new_cwd then
+        --     vim.cmd("lcd! " .. current_workspace[2])
+        -- end
     end
 
     -- If the user has changed directories and the autochdir flag is set then
@@ -484,10 +484,10 @@ module.on_event = function(event)
         local current_workspace = module.public.get_current_workspace()
 
         -- If the current workspace is not the default and if the cwd is not the same as the workspace root then set it
-        if module.config.public.autochdir and current_workspace[1] ~= "default" and current_workspace[2] ~= new_cwd then
-            vim.cmd("lcd! " .. current_workspace[2])
-            return
-        end
+        -- if module.config.public.autochdir and current_workspace[1] ~= "default" and current_workspace[2] ~= new_cwd then
+        --     vim.cmd("lcd! " .. current_workspace[2])
+        --     return
+        -- end
 
         -- Upon changing a directory attempt to perform a match
         module.public.update_cwd()
